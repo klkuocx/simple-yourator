@@ -29,7 +29,6 @@ ActiveRecord::Schema.define(version: 2021_02_22_100044) do
     t.integer "company_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["company_id"], name: "index_jobs_on_company_id", unique: true
   end
 
 end

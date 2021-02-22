@@ -5,7 +5,7 @@ class CreateJobs < ActiveRecord::Migration[6.1]
       t.text :description
       t.text :requirements
       t.string :compensation
-      t.integer :company_id, index: { unique: true }
+      t.integer :company_id
 
       t.timestamps
     end
