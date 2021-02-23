@@ -1,0 +1,23 @@
+<main class="container mt-5">
+  <section id="jobs" class="bg-light">
+    <div class="list-nav d-flex justify-content-between pt-3 px-3">
+      <h3>職缺列表</h3>
+    </div>
+    <div class="row row-cols-1 row-cols-md-1 g-3 m-2 pb-3">
+      <% @jobs.each do |job| %>
+      <div class="col">
+        <a href="/companies/<%= job.company_id %>/jobs/<%= job.id %>" class="card-link">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"><%= job.title %></h5>
+            </div>
+          </div>
+        </a>
+      </div>
+      <% end %>
+    </div>
+  </section>
+  <div class="d-flex justify-content-center pt-5">
+    <%= paginate @jobs, theme: "twitter-bootstrap-4" %>
+  <div>
+</main>
