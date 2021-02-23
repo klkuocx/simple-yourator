@@ -1,0 +1,22 @@
+<main class="container mt-5">
+  <section id="job" class="bg-light">
+    <div class="job_info p-3">
+      <h3><%= @job.title %></h3>
+
+      <h4 class="mt-4 text-black-50">工作內容</h4>
+      <p><%= @job.description %></p>
+
+      <h4 class="mt-4 text-black-50">條件要求</h4>
+      <p><%= @job.requirements %></p>
+
+      <h4 class="mt-4 text-black-50">公司福利</h4>
+      <p><%= @company.benefits %></p>
+
+      <h4 class="mt-4 text-black-50">薪資範圍</h4>
+      <p><%= @job.compensation %></p>
+    </div>
+  </section>
+  <div id="applied_btn" class="d-flex justify-content-center mt-5">
+    <button type="button" class="btn btn-lg btn-primary" disabled>現在應徵</button>
+  </div>
+</main>
