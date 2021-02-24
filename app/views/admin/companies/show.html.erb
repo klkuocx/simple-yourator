@@ -10,7 +10,7 @@
     <div class="row row-cols-1 row-cols-md-1 g-3 m-2 pb-3">
       <% @jobs.each do |job| %>
       <div class="col">
-        <a href="/companies/<%= job.company_id %>/jobs/<%= job.id %>/edit" class="card-link">
+        <a href="/admin/companies/<%= job.company_id %>/jobs/<%= job.id %>/edit" class="card-link">
           <div class="card">
             <div class="card-body">
               <h5 class="card-title"><%= job.title %></h5>

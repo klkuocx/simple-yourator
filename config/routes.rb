@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   # for admin
   namespace :admin do
-    resources :companies
+    resources :companies do
+      resources :jobs, :controller => 'company_jobs'
+    end
   end
 end
