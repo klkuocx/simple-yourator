@@ -1,0 +1,31 @@
+<main class="container mt-5">
+  <section id="company" class="bg-light">
+    <%= form_for @company, :html => {:class => "company_info pt-3 px-3"}, :url => admin_company_path(@company), :method => :patch do |f| %>
+      <h3><%= @company.name %></h3>
+
+      <div class="form-group mt-4">
+        <%= f.label :introduction, "公司介紹", class: "form-label  text-black-50 h4" %>
+        <%= f.text_area :introduction, class: "form-control" %>
+      </div>
+
+      <div class="form-group mt-4">
+        <%= f.label :vision, "公司理念", class: "form-label  text-black-50 h4" %>
+        <%= f.text_area :vision, class: "form-control" %>
+      </div>
+
+      <div class="form-group mt-4">
+        <%= f.label :news, "媒體報導", class: "form-label  text-black-50 h4" %>
+        <%= f.text_area :news, class: "form-control" %>
+      </div>
+
+      <div class="form-group mt-4">
+        <%= f.label :benefits, "薪資福利", class: "form-label  text-black-50 h4" %>
+        <%= f.text_area :benefits, class: "form-control" %>
+      </div>
+
+      <div class="d-grid gap-2 col-2 mx-auto pt-3 px-3">
+        <%= f.submit "存檔", class: "btn btn-primary mt-4" %>
+      </div>
+    <% end %>
+  </section>
+</main>
