@@ -1,6 +1,20 @@
 class Admin::CompanyJobsController < ApplicationController
   before_action :set_company
 
+  def new
+    @job = @company.jobs.build
+  end
+
+  def create
+    @job = @company.jobs.build(job_params)
+
+    if @job.save
+      redirect_to admin_company_url(@company)
+    else
+      render :action => :new
+    end
+  end
+
   def edit
     @job = @company.jobs.find( params[:id] )
   end
@@ -22,6 +36,6 @@ class Admin::CompanyJobsController < ApplicationController
   end
 
   def job_params
-    params.require(:job).permit(:description, :requirements, :compensation, :is_opened)
+    params.require(:job).permit(:title, :description, :requirements, :compensation, :is_opened)
   end
 end
