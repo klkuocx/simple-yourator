@@ -10,13 +10,23 @@
     <div class="row row-cols-1 row-cols-md-1 g-3 m-2 pb-3">
       <% @jobs.each do |job| %>
       <div class="col">
-        <a href="/admin/companies/<%= job.company_id %>/jobs/<%= job.id %>/edit" class="card-link">
           <div class="card">
-            <div class="card-body">
-              <h5 class="card-title"><%= job.title %></h5>
+            <div class="card-body d-flex justify-content-between">
+              <a href="/admin/companies/<%= job.company_id %>/jobs/<%= job.id %>/edit" class="card-link">
+                <h5 class="card-title"><%= job.title %></h5>
+              </a>
+              <div id="job-control">
+                <%= form_for job, :html => {:class => "job_info"}, :url => admin_company_job_path(@company, job), :method => :patch do |f| %>
+                  <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" name="job[is_opened]" id="is_opened_on" autocomplete="off" <% if job.is_opened %>value="true" checked<% end %> onclick="this.form.submit();">
+                    <% if job.is_opened %>
+                      <input type="hidden" id="is_opened_on" name="job[is_opened]" value="false">
+                    <% end %>
+                  </div>
+                <% end %>
+              </div>
             </div>
           </div>
-        </a>
       </div>
       <% end %>
     </div>

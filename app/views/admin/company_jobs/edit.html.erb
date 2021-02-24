@@ -1,6 +1,17 @@
 <main class="container mt-5">
   <section id="job" class="bg-light">
-    <%= form_for @job, :html => {:class => "company_info pt-3 px-3"}, :url => admin_company_job_path(@company, @job), :method => :patch do |f| %>
+    <%= form_for @job, :html => {:class => "job_info pt-3 px-3"}, :url => admin_company_job_path(@company, @job), :method => :patch do |f| %>
+
+      <div class="form-group mt-4">
+        <%= f.label :is_opened, "職缺狀態", class: "form-label  text-black-50 h4" %>
+        <div class="btn-group px-5" role="group" aria-label="Basic radio toggle button group">
+          <input type="radio" class="btn-check" name="job[is_opened]" id="is_opened_on" autocomplete="off" value="true"<% if @job.is_opened %> checked<% end %>>
+          <label class="btn btn-outline-primary" for="is_opened_on">開啟</label>
+
+          <input type="radio" class="btn-check" name="job[is_opened]" id="is_opened_off" autocomplete="off" value="false"<% if !@job.is_opened %> checked<% end %>>
+          <label class="btn btn-outline-primary" for="is_opened_off">關閉</label>
+        </div>
+      </div>
 
       <div class="form-group mt-4">
         <%= f.label :title, "職缺名稱", class: "form-label  text-black-50 h4" %>

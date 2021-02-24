@@ -7,6 +7,6 @@ class CompaniesController < ApplicationController
     @@id = params[:id]
     
     @company = Company.find(@@id)
-    @jobs = Job.where( company_id: @@id )
+    @jobs = Job.where( company_id: @@id, is_opened: true )
   end
 end
