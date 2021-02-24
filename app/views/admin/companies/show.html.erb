@@ -1,0 +1,24 @@
+<main class="container mt-5">
+  <section id="company" class="bg-light">
+    <div class="company_management pt-3 px-3 mb-4">
+      <a class="btn btn-primary btn-lg" href="/admin/companies/<%= @company_id %>/edit" role="button">管理公司資訊</a>
+    </div>
+    <div class="list-nav d-flex justify-content-between pt-3 px-3">
+      <h4 class="text-black-50">目前職缺</h4>
+      <a class="btn btn-primary" href="/admin/companies/<%= @company_id %>/jobs/new" role="button">新增職缺</a>
+    </div>
+    <div class="row row-cols-1 row-cols-md-1 g-3 m-2 pb-3">
+      <% @jobs.each do |job| %>
+      <div class="col">
+        <a href="/companies/<%= job.company_id %>/jobs/<%= job.id %>/edit" class="card-link">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"><%= job.title %></h5>
+            </div>
+          </div>
+        </a>
+      </div>
+      <% end %>
+    </div>
+  </section>
+</main>
