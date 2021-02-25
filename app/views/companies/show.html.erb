@@ -1,0 +1,34 @@
+<main class="container mt-5">
+  <section id="company" class="bg-light">
+    <div class="company_info pt-3 px-3">
+      <h3><%= @company.name %></h3>
+
+      <h4 class="mt-4 text-black-50">公司介紹</h4>
+      <p><%= @company.introduction %></p>
+
+      <h4 class="mt-4 text-black-50">公司理念</h4>
+      <p><%= @company.vision %></p>
+
+      <h4 class="mt-4 text-black-50">媒體報導</h4>
+      <p><%= @company.news %></p>
+
+      <h4 class="mt-4 text-black-50">薪資福利</h4>
+      <p><%= @company.benefits %></p>
+
+      <h4 class="mt-4 text-black-50">目前職缺</h4>
+    </div>
+    <div class="row row-cols-1 row-cols-md-1 g-3 m-2 pb-3">
+      <% @jobs.each do |job| %>
+      <div class="col">
+        <a href="/companies/<%= job.company_id %>/jobs/<%= job.id %>" class="card-link">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"><%= job.title %></h5>
+            </div>
+          </div>
+        </a>
+      </div>
+      <% end %>
+    </div>
+  </section>
+</main>

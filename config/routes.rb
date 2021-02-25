@@ -1,3 +1,17 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  # for user
+  get "/home" => "home#index"
+  resources :companies do
+    resources :jobs, :controller => 'company_jobs'
+  end
+  resources :jobs
+
+  root :to => "home#index"
+
+  # for admin
+  namespace :admin do
+    resources :companies do
+      resources :jobs, :controller => 'company_jobs'
+    end
+  end
 end
