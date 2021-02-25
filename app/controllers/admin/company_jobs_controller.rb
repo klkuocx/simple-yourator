@@ -10,8 +10,10 @@ class Admin::CompanyJobsController < ApplicationController
     @job = @company.jobs.build(job_params)
 
     if @job.save
+      flash[:success] = "job '#{@job.title}' was successfully updated"
       redirect_to admin_company_url(@company)
     else
+      flash.now[:warning] = "title is required."
       render :action => :new
     end
   end
@@ -22,15 +24,17 @@ class Admin::CompanyJobsController < ApplicationController
   def update
 
     if @job.update(job_params)
+      flash[:success] = "job '#{@job.title}' was successfully updated"
       redirect_to admin_company_url(@company)
     else
+      flash.now[:warning] = "title is required."
       render :action => :edit
     end
   end
 
   def destroy
     @job.destroy
-
+    flash[:danger] = "job '#{@job.title}' was successfully deleted"
     redirect_to admin_company_url(@company)
   end
 

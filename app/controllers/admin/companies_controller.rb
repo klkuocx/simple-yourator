@@ -11,7 +11,7 @@ class Admin::CompaniesController < ApplicationController
 
   def update
     @company.update(company_params)
-
+    flash[:success] = "company '#{@company.name}' was successfully updated"
     redirect_to :action => :show, :id => @company
   end
 
